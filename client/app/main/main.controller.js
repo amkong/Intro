@@ -21,6 +21,10 @@ angular.module('introApp')
       $http.delete('/api/things/' + thing._id);
     };
 
+    $scope.message = function() {
+      socket.sendMessage();
+    };
+
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });

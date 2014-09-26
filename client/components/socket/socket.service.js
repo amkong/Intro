@@ -69,6 +69,14 @@ angular.module('introApp')
       unsyncUpdates: function (modelName) {
         socket.removeAllListeners(modelName + ':save');
         socket.removeAllListeners(modelName + ':remove');
+      },
+
+      // send message from client to all clients
+      sendMessage: function () {
+        // socket.on('message', function() {
+          socket.emit('message', "hello world");
+          // console.log("message received");
+        // });
       }
     };
   });
