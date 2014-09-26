@@ -3,18 +3,18 @@
 var message = require('./message.model');
 
 exports.register = function(socket) {
-  message.schema.post('save', function (doc) {
-    onSave(socket, doc);
+  message.schema.post('save', function (msg) {
+    onSave(socket, msg);
   });
-  message.schema.post('remove', function (doc) {
-    onRemove(socket, doc);
+  message.schema.post('remove', function (msg) {
+    onRemove(socket, msg);
   });
 }
 
-function onSave(socket, doc, cb) {
-  socket.emit('message:save', doc);
+function onSave(socket, msg, cb) {
+  socket.emit('message:save', msg);
 }
 
-function onRemove(socket, doc, cb) {
-  socket.emit('message:remove', doc);
+function onRemove(socket, msg, cb) {
+  socket.emit('message:remove', msg);
 }
