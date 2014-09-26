@@ -14,6 +14,7 @@ angular.module('introApp')
         return;
       }
       $http.post('/api/things', { name: $scope.newThing });
+      debugger;
       $scope.newThing = '';
     };
 
@@ -21,8 +22,14 @@ angular.module('introApp')
       $http.delete('/api/things/' + thing._id);
     };
 
-    $scope.message = function() {
-      socket.sendMessage();
+
+    //Messages!
+    $scope.addMessage = function() {
+      if($scope.newMessage === '') {
+        return;
+      }
+      $http.post('/api/messages', { name: "THIS SHOULD BE USER NAME" });
+      $scope.newMessage = '';
     };
 
     $scope.$on('$destroy', function () {
