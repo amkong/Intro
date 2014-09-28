@@ -18,3 +18,10 @@ function onSave(socket, msg, cb) {
 function onRemove(socket, msg, cb) {
   socket.emit('message:remove', msg);
 }
+
+function listenMessage(socket, newMessage) {
+  socket.on('message', msg, function(newMessage) {
+    console.log('hit');
+    console.log(newMessage);
+  });
+}

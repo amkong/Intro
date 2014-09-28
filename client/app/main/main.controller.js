@@ -32,6 +32,12 @@ angular.module('introApp')
       $scope.newMessage = '';
     };
 
+    $scope.message = function() {
+      var msg = $scope.newMessage;
+      socket.sendMessage('message', msg);
+      console.log("sent message");
+    }
+
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });

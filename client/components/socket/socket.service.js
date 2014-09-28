@@ -72,9 +72,10 @@ angular.module('introApp')
       },
 
       // send message from client to all clients
-      sendMessage: function () {
+      sendMessage: function (newMessage) {
         // socket.on('message', function() {
-          socket.emit('message', "hello world");
+          socket.emit('message', newMessage);
+          console.log('message sent to server');
           // console.log("message received");
         // });
       }
