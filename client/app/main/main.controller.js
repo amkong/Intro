@@ -24,6 +24,8 @@ angular.module('introApp')
 
 
     //Messages!
+    $scope.inbox = [];
+
     $scope.addMessage = function() {
       if($scope.newMessage === '') {
         return;
@@ -36,6 +38,10 @@ angular.module('introApp')
       var msg = $scope.newMessage;
       socket.sendMessage('message', msg);
       console.log(msg);
+    }
+
+    $scope.newMessage = function() {
+      socket.receiveMessage();
     }
 
     $scope.$on('$destroy', function () {

@@ -32,6 +32,9 @@ exports.incomingMessage = function(socket) {
     socket.on('message', function(msg) {
       console.log("sent message");
       console.log(msg);
+      // socket.emit('message', msg);
     });
   };
+
+  // call function? msg is not defined
 };

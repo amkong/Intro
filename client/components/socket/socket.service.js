@@ -78,6 +78,12 @@ angular.module('introApp')
           console.log('message sent to server');
           // console.log("message received");
         // });
+      },
+
+      receiveMessage: function (gotMessage) {
+        socket.on('message', function(gotMessage) {
+          //post it to the ui.
+        });
       }
     };
   });
