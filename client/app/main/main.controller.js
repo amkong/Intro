@@ -35,7 +35,7 @@ angular.module('introApp')
     $scope.message = function() {
       var msg = $scope.newMessage;
       socket.sendMessage('message', msg);
-      console.log("sent message");
+      console.log(msg);
     }
 
     $scope.$on('$destroy', function () {

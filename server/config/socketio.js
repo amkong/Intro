@@ -20,6 +20,7 @@ function onConnect(socket) {
   // Insert sockets below
   require('../api/thing/thing.socket').register(socket);
   require('../api/messages/message.socket').register(socket);
+  require('../api/messages/message.socket').incomingMessage(socket);
 }
 
 module.exports = function (socketio) {
@@ -54,5 +55,6 @@ module.exports = function (socketio) {
     // Call onConnect.
     onConnect(socket);
     console.info('[%s] CONNECTED', socket.address);
+
   });
 };

@@ -19,9 +19,19 @@ function onRemove(socket, msg, cb) {
   socket.emit('message:remove', msg);
 }
 
-function listenMessage(socket, newMessage) {
-  socket.on('message', msg, function(newMessage) {
-    console.log('hit');
-    console.log(newMessage);
-  });
-}
+// exports.listenMessage = function(socket, msg) {
+//   socket.on('message', function(msg) {
+//     console.log('hit');
+//     console.log(msg);
+//     // socket.emit('message', msg);
+//   });
+
+exports.incomingMessage = function(socket) {
+  function recievedMessage(socket, msg) {
+    debugger;
+    socket.on('message', function(msg) {
+      console.log("sent message");
+      console.log(msg);
+    });
+  };
+};
