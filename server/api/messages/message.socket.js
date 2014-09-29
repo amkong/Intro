@@ -10,6 +10,9 @@ exports.register = function(socket) {
     onRemove(socket, msg);
   });
   socket.on('message', function(msg) {
+    var test = msg;
+    console.log(test);
+    //why is my message 'message'?
     socket.emit('message', msg);
   })
 }

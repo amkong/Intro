@@ -14,7 +14,6 @@ angular.module('introApp')
         return;
       }
       $http.post('/api/things', { name: $scope.newThing });
-      debugger;
       $scope.newThing = '';
     };
 
@@ -36,13 +35,16 @@ angular.module('introApp')
 
     $scope.message = function() {
       var msg = $scope.newMessage;
-      socket.sendMessage('message', msg);
-      console.log(msg);
+      socket.sendMessage(msg);
     }
 
     $scope.newMessage = function() {
       socket.receiveMessage('message', $scope.inbox);
-      console.log($scope.inbox);
+    }
+
+    $scope.deleteMessage = function(message) {
+      console.log(message);
+      console.log(message._id);
     }
 
     $scope.$on('$destroy', function () {
