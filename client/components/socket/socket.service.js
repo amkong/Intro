@@ -82,6 +82,7 @@ angular.module('introApp')
 
       receiveMessage: function (gotMessage) {
         socket.on('message', function(gotMessage) {
+          console.log('i got this from server');
           //post it to the ui.
         });
       }

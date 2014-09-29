@@ -9,6 +9,10 @@ exports.register = function(socket) {
   message.schema.post('remove', function (msg) {
     onRemove(socket, msg);
   });
+  socket.on('message', function(msg) {
+    console.log('hello');
+    socket.emit('message', "sent from server");
+  })
 }
 
 function onSave(socket, msg, cb) {
@@ -26,14 +30,11 @@ function onRemove(socket, msg, cb) {
 //     // socket.emit('message', msg);
 //   });
 
-exports.incomingMessage = function(socket) {
-    debugger;
-    socket.on('message', function(msg) {
-      console.log("sent message");
-      console.log(msg);
-      // socket.emit('message', msg);
-    });
-  }
-
-  // call function? msg is not defined
-};
+// exports.incomingMessage = function(socket) {
+//     debugger;
+//     socket.on('message', function(msg) {
+//       console.log("sent message");
+//       console.log(msg);
+//       // socket.emit('message', msg);
+//     });
+// };
