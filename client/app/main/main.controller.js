@@ -43,8 +43,7 @@ angular.module('introApp')
     }
 
     $scope.deleteMessage = function(message) {
-      console.log(message);
-      console.log(message._id);
+      //nothing here!
     }
 
     $scope.$on('$destroy', function () {

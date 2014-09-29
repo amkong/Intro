@@ -73,18 +73,12 @@ angular.module('introApp')
 
       // send message from client to all clients
       sendMessage: function (newMessage) {
-        // socket.on('message', function() {
           socket.emit('message', newMessage);
-          console.log('message sent to server');
-          // console.log("message received");
-        // });
       },
 
       receiveMessage: function (gotMessage, array) {
         socket.on('message', function(gotMessage) {
           var msg = gotMessage;
-          console.log(gotMessage);
-          //post it to the ui.
           array.push(gotMessage);
         });
       }
