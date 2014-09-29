@@ -10,8 +10,7 @@ exports.register = function(socket) {
     onRemove(socket, msg);
   });
   socket.on('message', function(msg) {
-    console.log('hello');
-    socket.emit('message', "sent from server");
+    socket.emit('message', msg);
   })
 }
 

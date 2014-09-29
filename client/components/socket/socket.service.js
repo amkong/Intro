@@ -80,10 +80,12 @@ angular.module('introApp')
         // });
       },
 
-      receiveMessage: function (gotMessage) {
+      receiveMessage: function (gotMessage, array) {
         socket.on('message', function(gotMessage) {
-          console.log('i got this from server');
+          var msg = gotMessage;
+          console.log(gotMessage);
           //post it to the ui.
+          array.push(gotMessage);
         });
       }
     };

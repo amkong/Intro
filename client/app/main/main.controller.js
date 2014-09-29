@@ -41,7 +41,8 @@ angular.module('introApp')
     }
 
     $scope.newMessage = function() {
-      socket.receiveMessage();
+      socket.receiveMessage('message', $scope.inbox);
+      console.log($scope.inbox);
     }
 
     $scope.$on('$destroy', function () {
