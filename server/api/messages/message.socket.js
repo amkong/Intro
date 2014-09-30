@@ -22,6 +22,12 @@ function onRemove(socket, msg, cb) {
   socket.emit('message:remove', msg);
 }
 
+// function onConnection(socket) {
+//   socket.on('onConnection', function() {
+//     console.log("this is the connection");
+//   });
+// }
+
 // exports.listenMessage = function(socket, msg) {
 //   socket.on('message', function(msg) {
 //     console.log('hit');

@@ -17,6 +17,10 @@ function onConnect(socket) {
     console.info('[%s] %s', socket.address, JSON.stringify(data, null, 2));
   });
 
+  // socket.emit('allmessages', function(err, res) {
+  //   console.log('sending messages...');
+  // });
+
   // Insert sockets below
   require('../api/thing/thing.socket').register(socket);
   require('../api/messages/message.socket').register(socket);
@@ -45,6 +49,11 @@ module.exports = function (socketio) {
             process.env.DOMAIN;
 
     socket.connectedAt = new Date();
+
+    // On connection, send all messages.
+    // socket.emit('allmessages', function(err, res) {
+    //   console.log('sending messages...');
+    // });
 
     // Call onDisconnect.
     socket.on('disconnect', function () {
