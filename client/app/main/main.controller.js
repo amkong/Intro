@@ -36,6 +36,7 @@ angular.module('introApp')
     $scope.message = function() {
       var msg = $scope.newMessage;
       socket.sendMessage(msg);
+      $scope.newMessage = '';
     }
 
     $scope.newMessage = function() {
