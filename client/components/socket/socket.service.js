@@ -71,16 +71,5 @@ angular.module('introApp')
         socket.removeAllListeners(modelName + ':remove');
       },
 
-      // send message from client to server
-      sendMessage: function (newMessage) {
-        socket.emit('message', newMessage);
-      },
-
-      receiveMessage: function (gotMessage, array) {
-        socket.on('message', function(gotMessage) {
-          var msg = gotMessage;
-          array.push(gotMessage);
-        });
-      }
     };
   });

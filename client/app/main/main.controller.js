@@ -21,37 +21,26 @@ angular.module('introApp')
       $http.delete('/api/things/' + thing._id);
     };
 
-    // testing.
-    $scope.testing = function() {
-      socket.onConnection();
-    };
 
     // Messages!
     $scope.inbox = [];
 
     $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
-      socket.syncUpdates('messages', $scope.indox);
+      socket.syncUpdates('message', $scope.indox);
       console.log('success: getting inbox from server');
     })
 
-    // $scope.addMessage = function() {
-    //   if($scope.newMessage === '') {
-    //     return;
-    //   }
-    //   $http.post('/api/messages', { name: "THIS SHOULD BE USER NAME" });
-    //   $scope.newMessage = '';
-    // };
-
     $scope.message = function() {
-      var msg = $scope.newMessage;
-      $http.post('api/messages', { text: msg });
-      socket.sendMessage(msg);
+      if($scope.newMessage === '') {
+        return;
+      }
+      $http.post('api/messages', { name: "User", text: $scope.newMessage });
       $scope.newMessage = '';
     }
 
-    $scope.newMessage = function() {
-      socket.receiveMessage('message', $scope.inbox);
+    $scope.deleteMessage = function(message) {
+      $http.delete('/api/messages/' + message._id);
     }
 
     $scope.$on('$destroy', function () {
