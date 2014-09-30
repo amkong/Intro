@@ -27,7 +27,7 @@ angular.module('introApp')
 
     $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
-      socket.syncUpdates('message', $scope.indox);
+      socket.syncUpdates('message', $scope.inbox);
       console.log('success: getting inbox from server');
     })
 
@@ -45,5 +45,6 @@ angular.module('introApp')
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('message');
     });
   });

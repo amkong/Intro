@@ -55,6 +55,7 @@ angular.module('introApp')
          * Syncs removed items on 'model:remove'
          */
         socket.on(modelName + ':remove', function (item) {
+          debugger;
           var event = 'deleted';
           _.remove(array, {_id: item._id});
           cb(event, item, array);
