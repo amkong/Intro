@@ -1,64 +1,87 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>Intro's Messaging App</h1>
-    <p class="lead">Lightning fast dating in real time!</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
+<div class="window-wrapper">
+    <div class="window-title">
+      <div class="dots">
+        <i class="fa fa-circle"></i>
+        <i class="fa fa-circle"></i>
+        <i class="fa fa-circle"></i>
+      </div>
+      <div class="title">
+        <span>Intro Chat</span>
+      </div>
+      <div class="expand">
+        <i class="fa fa-expand"></i>
+      </div>
+    </div>
+    <div class="window-area">
+      <div class="conversation-list">
+        <ul class="">
+          <li class="item"><a href="#"><i class="fa fa-list-alt"></i><span>Dashboard</span></a></li>
+          <li class="item active"><a href="#"><i class="fa fa-user"></i><span>Team chat</span><i class="fa fa-times"></i></a></li>
+          <li><a href="#"><i class="fa fa-circle-o online"></i></i><span>Cucu Ionel</span><i class="fa fa-times"></i></a></li>
+          <li><a href="#"><i class="fa fa-circle-o idle"></i></i><span>Jan Dvořák</span><i class="fa fa-times"></i></a></li>
+          <li><a href="#"><i class="fa fa-circle-o offline"></i></i><span>Clark Kent</span><i class="fa fa-times"></i></a></li>
+          <li><a href="#"><i class="fa fa-circle-o offline"></i></i><span>Ioana Marcu</span><i class="fa fa-times"></i></a></li>
+        </ul>
+        <div class="my-account">
+          <div class="image">
+            <img src="https://secure.gravatar.com/avatar/de76e03aa6b5b0bf675c1e8a990da52f?s=64">
+            <i class="fa fa-circle online"></i>
+          </div>
+          <div class="name">
+            <span>Cucu Ionel</span>
+            <i class="fa fa-angle-down"></i>
+            <span class="availability">Available</span>
+          </div>
 
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
-      </ul>
+        </div>
+      </div>
+      <div class="chat-area">
+        <div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
+        <div class="chat-list">
+          <ul ng-repeat="message in inbox">
+            <li class="me">
+              <div class="name">
+                <span class="">{{message.user}}</span>
+              </div>
+              <div class="message">
+                <p>{{message.text}}</p>
+                <span class="msg-time">{{message.createdAt}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="input-area">
+          <div class="input-wrapper">
+            <input type="text" value="" ng-model="newMessage">
+            <i class="fa fa-smile-o"></i>
+            <i class="fa fa-paperclip"></i>
+          </div>
+          <input type="button" value="Submit" class="send-btn" ng-click="message()">
+        </div>
+      </div>
+      <div class="right-tabs">
+        <ul class="tabs">
+          <li class="active">
+            <a href="#"><i class="fa fa-users"></i></a>
+          </li>
+          <li><a href="#"><i class="fa fa-paperclip"></i></a></li>
+          <li><a href="#"><i class="fa fa-link"></i></a></li>
+        </ul>
+        <ul class="tabs-container">
+          <li class="active">
+            <ul class="member-list">
+              <li><span class="status online"><i class="fa fa-circle-o"></i></span><span>Cucu Ionel</span></li>
+              <li><span class="status online"><i class="fa fa-circle-o"></i></span><span>Christian Smith</span></li>
+              <li><span class="status idle"><i class="fa fa-circle-o"></i></span><span>John Bradley</span><span class="time">10:45 pm</span></li>
+              <li><span class="status offline"><i class="fa fa-circle-o"></i></span><span>Daniel Freitz</span></li>
+            </ul>
+          </li>
+          <li></li>
+          <li></li>
+        </ul>
+        <i class="fa fa-cog"></i>
+      </div>
     </div>
   </div>
-
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
-      </span>
-    </p>
-  </form> -->
-
-  <!-- MESSAGES -->
-  <div class="chatroom">
-  <div class="row">
-    <div class="col-lg-12">
-      <ul class="nav nav-tabs nav-stacked chat" ng-repeat="message in inbox">
-        <li>
-          <p>{{message.text}}</p> 
-          <p>{{message.createdAt}}
-          <button type="button" class="close" ng-click="deleteMessage(message)">&times;</button></p>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="chatform">
-    <form class="chatformbar">
-      <label>Chat Here.</label>
-      <p class="input-group">
-        <input type="text" class="form-control" placeholder="Message." ng-model="newMessage">
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary" ng-click="message()">Add New</button>
-        </span>
-      </p>
-    </form>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="container">
-      <p>Angular Fullstack v2.0.13 |
-        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
-         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
-  </div>
-</footer>
