@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('introApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function ($scope, $http, socket, Auth) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
@@ -35,7 +35,8 @@ angular.module('introApp')
       if($scope.newMessage === '') {
         return;
       }
-      $http.post('api/messages', { name: "User", text: $scope.newMessage });
+      var currentUser = Auth.getCurrentUser();
+      $http.post('api/messages', { name: currentUser, text: $scope.newMessage });
       $scope.newMessage = '';
     }
 
