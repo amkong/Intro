@@ -16,7 +16,6 @@ exports.register = function(socket) {
 
 function onSave(socket, msg, cb) {
   socket.emit('message:save', msg);
-  console.log('saved to database');
 }
 
 function onRemove(socket, msg, cb) {
