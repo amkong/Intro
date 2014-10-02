@@ -8,6 +8,7 @@ angular.module('introApp')
 
     $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
+      $scope.user = Auth.getCurrentUser().name;
       socket.syncUpdates('message', $scope.inbox);
 
       // scroll to bottom of chat
@@ -21,9 +22,8 @@ angular.module('introApp')
       if($scope.newMessage === '') {
         return;
       }
-      var currentUser = Auth.getCurrentUser().name;
       var currentUserEmail = Auth.getCurrentUser().email;
-      $http.post('api/messages', { user: currentUser, text: $scope.newMessage, email: currentUserEmail });
+      $http.post('api/messages', { user: $scope.user, text: $scope.newMessage, email: currentUserEmail });
       $scope.newMessage = '';
     }
 
