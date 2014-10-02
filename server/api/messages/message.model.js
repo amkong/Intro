@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var MessageSchema = new Schema({
   user: String,
   text: String,
+  email: String,
   createdAt: { type: Date, default: Date.now }
 });
 

@@ -28,6 +28,11 @@ angular.module('introApp')
     $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
       socket.syncUpdates('message', $scope.inbox);
+
+      // scroll to bottom of chat
+      $(".chat-list").load().animate({ scrollTop: $(document).height() }, "slow");
+      // why does it stop before it gets to the bottom?
+
       console.log('success: getting inbox from server');
     })
 
@@ -35,8 +40,9 @@ angular.module('introApp')
       if($scope.newMessage === '') {
         return;
       }
-      var currentUser = Auth.getCurrentUser();
-      $http.post('api/messages', { user: currentUser, text: $scope.newMessage });
+      var currentUser = Auth.getCurrentUser().name;
+      var currentUserEmail = Auth.getCurrentUser().email;
+      $http.post('api/messages', { user: currentUser, text: $scope.newMessage, email: currentUserEmail });
       $scope.newMessage = '';
     }
 
