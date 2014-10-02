@@ -36,7 +36,7 @@ angular.module('introApp')
         return;
       }
       var currentUser = Auth.getCurrentUser();
-      $http.post('api/messages', { name: currentUser, text: $scope.newMessage });
+      $http.post('api/messages', { user: currentUser, text: $scope.newMessage });
       $scope.newMessage = '';
     }
 

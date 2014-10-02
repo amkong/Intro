@@ -1,1 +1,344 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"app",
+				"app"
+			],
+			[
+				"phoneca",
+				"phonecatApp"
+			],
+			[
+				"ctrl",
+				"ctrl"
+			],
+			[
+				"httpba",
+				"httpBackend"
+			],
+			[
+				"Phone",
+				"PhoneDetailCtrl"
+			],
+			[
+				"httpBac",
+				"httpBackend"
+			],
+			[
+				"http",
+				"httpBackend_"
+			],
+			[
+				"httpb",
+				"httpBackend"
+			],
+			[
+				"httpB",
+				"httpBackend_"
+			],
+			[
+				"phone",
+				"phonecatApp"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 227.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"javascrip",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"HTML",
+				"Set Syntax: HTML"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/css/app.css",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/js/controllers.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/index.html",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/bower.json",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Intro/server.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/js/app.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/partials/beyondcinema.html",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/css/animate.css",
+		"/Users/andrewkong/Desktop/helloworld.html",
+		"/Users/andrewkong/Documents/Dev_kit/html5up-astral/js/html5shiv.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/node_modules/http-server/node_modules/union/test/header-test.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/bower_components/bootstrap/less/scaffolding.less",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/bower_components/bootstrap/less/scaffolding.less",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/bower_components/bootstrap/test-infra/s3_cache.py",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/outter-server/node_modules/jade/lib/self-closing.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/test/e2e/scenarios.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/node_modules/gulp-rename/test/spec-helper.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/www/templates/angular.audio.js",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/templates/tab-dash.html",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/index.html",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/js/app.js",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/js/controllers.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AndrewResume/app/bower_components/bootstrap/dist/css/bootstrap.css",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/js/services.js",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/templates/tab-friends.html",
+		"/Users/andrewkong/Documents/Dev_kit/Projects/Gong-Client/myApp/www/templates/friend-detail.html",
+		"/Users/andrewkong/Documents/Dev_kit/html5up-astral/index.html",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/js/controllers.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/index.html",
+		"/Users/andrewkong/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/Default (OSX).sublime-keymap",
+		"/Users/andrewkong/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/config.xml",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/node_modules/protractor/example/chromeOnlyConf.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/test/karma.conf.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/test/unit/controllersSpec.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/js/app.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/test/unit/filtersSpec.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/js/services.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/node_modules/karma/bin/karma",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/node_modules/gulp-sass/node_modules/node-sass/libsass/kwd_arg_macros.hpp",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/LICENSE",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/outter-ws-server/server.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/node_modules/protractor/node_modules/minijasminenode/spec/syntax_error.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/partials/phone-detail.html",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/bower.json",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/js/filters.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/partials/phone-list.html",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/phones/phones.json",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/node_modules/gulp-util/lib/isNull.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/ionic.project",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/app/bower_components/jquery/test/data/params_html.php",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/package.json",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/AngularTutorial/angular-phonecat/test/protractor-conf.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/outter-server/app.js",
+		"/Users/andrewkong/Documents/Dev_kit/Javascript/Outter/OutterApp/README.md"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"margin",
+			"class=\"col-md-3\"",
+			"tab.",
+			"tab",
+			"Tab",
+			"tab",
+			"Tab",
+			"tab",
+			"this",
+			"\n//",
+			"+  ",
+			"phonecatApp",
+			"x"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "bower.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"scaffol",
+				"angular-phonecat/app/bower_components/bootstrap/less/scaffolding.less"
+			],
+			[
+				"controller",
+				"angular-phonecat/app/js/controllers.js"
+			],
+			[
+				"karma",
+				"angular-phonecat/test/karma.conf.js"
+			],
+			[
+				"service",
+				"angular-phonecat/app/js/services.js"
+			],
+			[
+				"bower",
+				"angular-phonecat/bower.json"
+			],
+			[
+				"phone-de",
+				"angular-phonecat/app/partials/phone-detail.html"
+			],
+			[
+				"inde",
+				"angular-phonecat/app/index.html"
+			],
+			[
+				"scen",
+				"angular-phonecat/test/e2e/scenarios.js"
+			],
+			[
+				"phones.",
+				"angular-phonecat/app/phones/phones.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 142.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
