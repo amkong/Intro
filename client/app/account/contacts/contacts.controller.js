@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('introApp')
-  .controller('ContactsCtrl', function ($scope) {
+  .controller('ContactsModalCtrl', function ($scope, $modal) {
     $scope.message = 'Hello';
   });

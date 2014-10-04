@@ -6,6 +6,6 @@ angular.module('introApp')
       .state('contacts', {
         url: '/contacts',
         templateUrl: 'app/account/contacts/contacts.html',
-        controller: 'ContactsCtrl'
+        controller: 'ContactsModalCtrl'
       });
   });

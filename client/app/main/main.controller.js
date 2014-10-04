@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('introApp')
-  .controller('MainCtrl', function ($scope, $http, socket, Auth) {
+  .controller('MainCtrl', function ($scope, $http, socket, Auth, Modal) {
     
     // Messages!
     $scope.inbox = [];
@@ -30,6 +30,10 @@ angular.module('introApp')
     $scope.deleteMessage = function(message) {
       $http.delete('/api/messages/' + message._id);
     }
+
+    // $scope.test = function() {
+    //   $scope.openModal();
+    // }
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
