@@ -22,6 +22,7 @@ function onConnect(socket) {
   // });
 
   // Insert sockets below
+  require('../api/conversation/conversation.socket').register(socket);
   require('../api/messages/message.socket').register(socket);
 }
 

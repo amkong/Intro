@@ -5,15 +5,17 @@ angular.module('introApp')
     
     // Messages!
     $scope.inbox = [];
+    var user = Auth.getCurrentUser();
 
-    $http.get('/api/messages').success(function(messages) {
+    $http.get('/api/messages/' + user._id).success(function(messages) {
+    // $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
-      $scope.user = Auth.getCurrentUser().name;
-      socket.syncUpdates('message', $scope.inbox);
+      $scope.user = user.name;
+      $scope.contacts = user.contactList;
+      $(".chat-list").animate({ scrollTop: $(".chat-area").height()*10 }, "fast");
 
-      // scroll to bottom of chat
-      $(".chat-list").load().animate({ scrollTop: $(document).height() }, "fast");
-      // why does it stop before it gets to the bottom?
+      // callback to move chat down to new message?
+      socket.syncUpdates('message', $scope.inbox);
 
       console.log('success: getting inbox from server');
     })
@@ -22,8 +24,17 @@ angular.module('introApp')
       if($scope.newMessage === '') {
         return;
       }
-      var currentUserEmail = Auth.getCurrentUser().email;
-      $http.post('api/messages', { user: $scope.user, text: $scope.newMessage, email: currentUserEmail });
+
+      var message = {
+        userId: user._id,
+        user: $scope.user,
+        to: user._id,
+        text: $scope.newMessage,
+        email: user.email
+      };
+
+      $http.post('api/messages', message);
+      console.log(message);
       $scope.newMessage = '';
     }
 
@@ -31,9 +42,9 @@ angular.module('introApp')
       $http.delete('/api/messages/' + message._id);
     }
 
-    // $scope.test = function() {
-    //   $scope.openModal();
-    // }
+    $scope.test = function() {
+      redirect('/contacts')
+    }
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');

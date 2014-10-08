@@ -2,5 +2,9 @@
 
 angular.module('introApp')
   .controller('ContactsModalCtrl', function ($scope, $modal) {
-    $scope.message = 'Hello';
+    $scope.addcontact = function(form) {
+      $scope.submitted = true;
+
+      // push user.contactList
+    }
   });

@@ -9,9 +9,9 @@ exports.register = function(socket) {
   message.schema.post('remove', function (msg) {
     onRemove(socket, msg);
   });
-  socket.on('message', function(msg) {
-    socket.emit('message', msg);
-  })
+  // socket.on('message', function(msg) {
+  //   socket.emit('message', msg);
+  // })
 }
 
 function onSave(socket, msg, cb) {
