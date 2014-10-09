@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var _ = require('lodash');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -52,10 +53,9 @@ exports.create = function (req, res, next) {
 exports.show = function(req, res, next) {
   var userEmail = req.params.id;
 
-  User.findOne( {'email': userEmail}, function(err, user) {
+  User.findOne( { 'email': userEmail }, function(err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
-    delete user['hashedPassword', 'role', 'salt', 'contactList'];
     var sendUser = { 
       '_id': user._id
     }
@@ -67,17 +67,14 @@ exports.show = function(req, res, next) {
 
 // update user contact list.
 exports.update = function(req, res) {
-  var userId = req.params.id;
+  var contact = req.params.id;
+  // i need another params...
   
-  User.findById(userId, function(err, user) {
-    if (err) { return handleError(res, err); }
-    if (!user) { return res.send(404); }
-    var updated = _.merge(user, req.contactList);
-    updated.save(function (err) {
-      if (err) { return handleError(err); }
-      return res.json(200, user);
-      console.log('i did it!');
-    });
+  req.user.contactList = _.merge(req.user.contactList, contact);
+  req.user.save(function (err) {
+    if (err) { return handleError(err); }
+    console.log('i did it!');
+    return res.json(200, req.user);
   });
 };
 

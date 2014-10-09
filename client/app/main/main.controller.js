@@ -7,13 +7,13 @@ angular.module('introApp')
     $scope.inbox = [];
 
     var user = Auth.getCurrentUser();
-    console.log(Auth.getCurrentUser()._id);
 
     // $http.get('/api/messages/' + user._id).success(function(messages) {
     $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
       $scope.user = user.name;
       $scope.contacts = user.contactList;
+      console.log($scope.contacts);
       $(".chat-list").animate({ scrollTop: $(".chat-area").height()*10 }, "fast");
 
       // callback to move chat down to new message?

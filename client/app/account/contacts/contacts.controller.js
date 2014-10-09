@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('introApp')
-  .controller('ContactsModalCtrl', function ($scope, $modal, $http, Auth) {
+  .controller('ContactsModalCtrl', function ($scope, $modal, $http, $location, Auth) {
     $scope.addContact = function(form) {
       $scope.submitted = true;
 
@@ -10,12 +10,12 @@ angular.module('introApp')
       var email = $scope.contact.email;
       $http.get('/api/users/' + email).success(function(user) {
         console.log("found user");
-        var currentUser = Auth.getCurrentUser();
-        currentUserList.contactList.push(user._id);
+        var currentUserList = Auth.getCurrentUser().contactList;
+        currentUserList.push(user._id);
         console.log(currentUserList);
-        $http.get('/api/users/' + currentUser._id + '/' + user._id)
-
-
+        $http.put('/api/users/contacts/add/' + user._id).success(function() {
+          $location.path('/');
+        })
 
         // from res.user, find id. add id to users contact array.
       })

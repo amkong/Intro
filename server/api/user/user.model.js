@@ -12,7 +12,7 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
-  contactList: [],
+  contactList: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   hashedPassword: String,
   provider: String,
   salt: String,
