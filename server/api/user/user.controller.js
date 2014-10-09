@@ -37,15 +37,27 @@ exports.create = function (req, res, next) {
 /**
  * Get a single user
  */
-exports.show = function (req, res, next) {
-  var userId = req.params.id;
+// exports.show = function (req, res, next) {
+//   var userId = req.params.id;
 
-  User.findById(userId, function (err, user) {
+//   User.findById(userId, function (err, user) {
+//     if (err) return next(err);
+//     if (!user) return res.send(401);
+//     res.json(user.profile);
+//   });
+// };
+
+
+// Get a single user from email --> adding to contact list
+exports.show = function(req, res, next) {
+  var userEmail = req.params.idl
+
+  User.find( {'email': userEmail}, function(err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
-    res.json(user.profile);
-  });
-};
+    res.json(user);
+  })
+}
 
 /**
  * Deletes a user

@@ -20,19 +20,21 @@ exports.index = function(req, res) {
   });
 };
 
-// TODO: get messages based on userID.
-exports.findUserMessages = function(req, res) {
-  var to = req.params.id;
-  Message.findById( { 'to': to }, function(err, message) {
-    if(err) { return handleError(res, err); }
-    if(!message) { return res.send(404); }
-    return res.json(message);
-  });
-};
+// // TODO: get messages based on userID.
+// exports.findUserMessages = function(req, res) {
+//   var to = req.params.id;
+//   Message.findById( { 'to': to }, function(err, message) {
+//     if(err) { return handleError(res, err); }
+//     if(!message) { return res.send(404); }
+//     return res.json(message);
+//   });
+// };
 
 // Get a single message
 exports.show = function(req, res) {
-  Message.findById(req.params.id, function (err, message) {
+  var id = req.params.id
+
+  Message.find({ 'to': id }, function (err, message) {
     if(err) { return handleError(res, err); }
     if(!message) { return res.send(404); }
     return res.json(message);
