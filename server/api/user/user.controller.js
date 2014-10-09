@@ -50,14 +50,37 @@ exports.create = function (req, res, next) {
 
 // Get a single user from email --> adding to contact list
 exports.show = function(req, res, next) {
-  var userEmail = req.params.idl
+  var userEmail = req.params.id;
 
-  User.find( {'email': userEmail}, function(err, user) {
+  User.findOne( {'email': userEmail}, function(err, user) {
     if (err) return next(err);
     if (!user) return res.send(401);
-    res.json(user);
-  })
-}
+    delete user['hashedPassword', 'role', 'salt', 'contactList'];
+    var sendUser = { 
+      '_id': user._id
+    }
+    console.log(sendUser);
+    res.json(sendUser);
+  });
+};
+
+
+// update user contact list.
+exports.update = function(req, res) {
+  var userId = req.params.id;
+  
+  User.findById(userId, function(err, user) {
+    if (err) { return handleError(res, err); }
+    if (!user) { return res.send(404); }
+    var updated = _.merge(user, req.contactList);
+    updated.save(function (err) {
+      if (err) { return handleError(err); }
+      return res.json(200, user);
+      console.log('i did it!');
+    });
+  });
+};
+
 
 /**
  * Deletes a user

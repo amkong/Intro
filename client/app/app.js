@@ -7,6 +7,7 @@ angular.module('introApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
+  'angularMoment'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

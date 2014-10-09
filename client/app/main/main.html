@@ -47,7 +47,8 @@
               </div>
               <div class="message">
                 <p>{{message.text}}</p>
-                <span class="msg-time">{{message.createdAt}}</span>
+                <!-- <span class="msg-time">{{message.createdAt | amCalendar}}</span> -->
+                <span class="msg-time" am-time-ago="message.createdAt"></span>
               </div>
             </li>
           </ul>
