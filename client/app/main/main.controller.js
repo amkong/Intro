@@ -7,6 +7,7 @@ angular.module('introApp')
     $scope.inbox = [];
 
     var user = Auth.getCurrentUser();
+    // async? sometimes on log in will not run.
 
     // $http.get('/api/messages/' + user._id).success(function(messages) {
     $http.get('/api/messages').success(function(messages) {
@@ -18,8 +19,6 @@ angular.module('introApp')
 
       // callback to move chat down to new message?
       socket.syncUpdates('message', $scope.inbox);
-
-      console.log('success: getting inbox from server');
     })
 
     $scope.message = function() {
@@ -30,6 +29,7 @@ angular.module('introApp')
       var message = {
         userId: user._id,
         user: $scope.user,
+        // CAUTION: SENDING MESSAGE TO SELF
         to: user._id,
         text: $scope.newMessage,
         email: user.email
@@ -42,10 +42,6 @@ angular.module('introApp')
 
     $scope.deleteMessage = function(message) {
       $http.delete('/api/messages/' + message._id);
-    }
-
-    $scope.test = function() {
-      redirect('/contacts')
     }
 
     $scope.$on('$destroy', function () {

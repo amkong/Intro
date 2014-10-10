@@ -49,33 +49,23 @@ exports.create = function (req, res, next) {
 // };
 
 
-// Get a single user from email --> adding to contact list
-exports.show = function(req, res, next) {
+// Get a single user from email --> add full user to contact list
+exports.addContact = function(req, res, next) {
   var userEmail = req.params.id;
 
-  User.findOne( { 'email': userEmail }, function(err, user) {
-    if (err) return next(err);
-    if (!user) return res.send(401);
-    var sendUser = { 
-      '_id': user._id
-    }
-    console.log(sendUser);
-    res.json(sendUser);
-  });
-};
-
-
-// update user contact list.
-exports.update = function(req, res) {
-  var contact = req.params.id;
-  // i need another params...
-  
-  req.user.contactList = _.merge(req.user.contactList, contact);
-  req.user.save(function (err) {
+  User.findOne( { 'email': userEmail }, function(err, user)  {
     if (err) { return handleError(err); }
-    console.log('i did it!');
-    return res.json(200, req.user);
-  });
+    if (!user) { return res.json(401); }
+
+    // saving contact id to user's contact list
+    var contact = user._id;
+    req.user.contactList = _.merge(req.user.contactList, contact);
+    
+    req.user.save(function (err, user) {
+      if (err) { return handleError(err); }
+      return res.json(200, contact);
+    })
+  })
 };
 
 

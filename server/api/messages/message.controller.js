@@ -30,14 +30,14 @@ exports.index = function(req, res) {
 //   });
 // };
 
-// Get a single message
+// Get a messages from user id --> ONLY ON TO FEILD!
 exports.show = function(req, res) {
-  var id = req.params.id
+  var id = req.params.id;
 
-  Message.find({ 'to': id }, function (err, message) {
+  Message.findById({ "userId": id }, function (err, messages) {
     if(err) { return handleError(res, err); }
-    if(!message) { return res.send(404); }
-    return res.json(message);
+    if(!messages) { return res.send(404); }
+    return res.json(200, messages);
   });
 };
 
