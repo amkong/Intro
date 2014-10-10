@@ -12,8 +12,8 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
-  contactList: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  hashedPassword: String,
+  contactList: [ { type: Schema.Types.ObjectId, ref: 'User' } ],
+  hashedPassword: String, 
   provider: String,
   salt: String,
   facebook: {},

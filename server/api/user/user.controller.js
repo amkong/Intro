@@ -56,17 +56,27 @@ exports.addContact = function(req, res, next) {
   User.findOne( { 'email': userEmail }, function(err, user)  {
     if (err) { return handleError(err); }
     if (!user) { return res.json(401); }
-
-    // saving contact id to user's contact list
     var contact = user._id;
-    req.user.contactList = _.merge(req.user.contactList, contact);
-    
+    req.user.contactList.push(contact);
     req.user.save(function (err, user) {
       if (err) { return handleError(err); }
       return res.json(200, contact);
     })
   })
 };
+
+// GET contacts list on login
+exports.contacts = function(req, res) {
+  var user = req.user
+
+  User.findById(user._id)
+  .populate('contactList')
+  .exec(function(err, user) {
+    if (err) { return handleError(err); }
+    if (!user) { return res.json(401); }
+    return res.json(200, user.contactList)
+  })
+}
 
 
 /**

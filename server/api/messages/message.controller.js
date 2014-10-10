@@ -34,7 +34,7 @@ exports.index = function(req, res) {
 exports.show = function(req, res) {
   var id = req.params.id;
 
-  Message.findById({ "userId": id }, function (err, messages) {
+  Message.find({ "userId": id }, function (err, messages) {
     if(err) { return handleError(res, err); }
     if(!messages) { return res.send(404); }
     return res.json(200, messages);

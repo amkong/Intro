@@ -9,12 +9,18 @@ angular.module('introApp')
     var user = Auth.getCurrentUser();
     // async? sometimes on log in will not run.
 
-    // $http.get('/api/messages/' + user._id).success(function(messages) {
+    // http call for contact list
+
+    // GET contacts
+    $http.get('/api/users/contacts/list').success(function(contacts) {
+      $scope.contacts = contacts;
+    })
+
+    // GET messages
+      // $http.get('/api/messages/' + user._id).success(function(messages) {
     $http.get('/api/messages').success(function(messages) {
       $scope.inbox = messages;
       $scope.user = user.name;
-      $scope.contacts = user.contactList;
-      console.log($scope.contacts);
       $(".chat-list").animate({ scrollTop: $(".chat-area").height()*10 }, "fast");
 
       // callback to move chat down to new message?

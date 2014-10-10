@@ -35,7 +35,6 @@ User.find({}).remove(function() {
     name: 'Test User',
     email: 'test@test.com',
     password: 'test',
-    contactList: ['5436d07e76a8750000fd896b']
   }, {
     provider: 'local',
     role: 'admin',

@@ -6,7 +6,6 @@ angular.module('introApp')
       $scope.submitted = true;
 
       var email = $scope.contact.email;
-      console.log(email);
       $http.get('/api/users/' + email).success(function(contact) {
         var userList = Auth.getCurrentUser().contactList;
         console.log(contact)
