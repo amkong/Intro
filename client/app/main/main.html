@@ -73,7 +73,7 @@
         <ul class="tabs-container">
           <li class="active">
             <ul class="member-list" ng-repeat="contact in contacts">
-              <li><span class="status online"><i class="fa fa-circle-o"></i></span><span>{{contact.name}}</span></li>
+              <li ng-click="newConversation()"><span class="status online"><i class="fa fa-circle-o"></i></span><span>{{contact.name}}</span></li>
               <!-- <li><span class="status online"><i class="fa fa-circle-o"></i></span><span>Christian Smith</span></li>
               <li><span class="status idle"><i class="fa fa-circle-o"></i></span><span>John Bradley</span><span class="time">10:45 pm</span></li>
               <li><span class="status offline"><i class="fa fa-circle-o"></i></span><span>Daniel Freitz</span></li> -->

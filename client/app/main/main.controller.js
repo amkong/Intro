@@ -50,6 +50,22 @@ angular.module('introApp')
       $http.delete('/api/messages/' + message._id);
     }
 
+    $scope.newConversation = function() {
+      // click on contact to open a conversation
+      console.log(this.contact._id);
+      var contact = this.contact;
+
+      var conversation = {
+        name: contact.name,
+        creator: user._id,
+        userId: contact._id
+      }
+
+      $http.post('/api/conversations/', conversation).success(function(err, conversation) {
+        console.log(conversation);
+      });
+    }
+
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
       socket.unsyncUpdates('message');
