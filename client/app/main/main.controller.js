@@ -5,26 +5,28 @@ angular.module('introApp')
     
     // Messages!
     $scope.inbox = [];
+    $scope.conversations = [];
 
     var user = Auth.getCurrentUser();
     // async? sometimes on log in will not run.
-
-    // http call for contact list
 
     // GET contacts
     $http.get('/api/users/contacts/list').success(function(contacts) {
       $scope.contacts = contacts;
     })
 
+    // GET conversations
+
     // GET messages
       // $http.get('/api/messages/' + user._id).success(function(messages) {
     $http.get('/api/messages').success(function(messages) {
+      // why does .push not work here?
       $scope.inbox = messages;
       $scope.user = user.name;
-      $(".chat-list").animate({ scrollTop: $(".chat-area").height()*10 }, "fast");
 
       // callback to move chat down to new message?
       socket.syncUpdates('message', $scope.inbox);
+      $(".chat-list").animate({ scrollTop: $(".chat-area").height()*10 }, "fast");
     })
 
     $scope.message = function() {
@@ -42,13 +44,9 @@ angular.module('introApp')
       };
 
       $http.post('api/messages', message);
-      console.log(message);
       $scope.newMessage = '';
     }
 
-    $scope.deleteMessage = function(message) {
-      $http.delete('/api/messages/' + message._id);
-    }
 
     $scope.newConversation = function() {
       // click on contact to open a conversation
@@ -61,8 +59,9 @@ angular.module('introApp')
         userId: contact._id
       }
 
-      $http.post('/api/conversations/', conversation).success(function(err, conversation) {
-        console.log(conversation);
+      $http.post('/api/conversations/', conversation).success(function(conversation) {
+        $scope.conversations.push(conversation);
+        console.log($scope.conversations);
       });
     }
 

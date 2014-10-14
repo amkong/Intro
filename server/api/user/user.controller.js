@@ -65,6 +65,7 @@ exports.addContact = function(req, res, next) {
   })
 };
 
+
 // GET contacts list on login
 exports.contacts = function(req, res) {
   var user = req.user

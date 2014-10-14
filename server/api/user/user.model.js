@@ -13,6 +13,7 @@ var UserSchema = new Schema({
     default: 'user'
   },
   contactList: [ { type: Schema.Types.ObjectId, ref: 'User' } ],
+  conversationList: [],
   hashedPassword: String, 
   provider: String,
   salt: String,
