@@ -17,7 +17,7 @@ angular.module('introApp')
     })
 
     // GET conversations from users conversation list
-    $http.get('/api/users/conversations/list').success(function(conversations) {
+    $http.get('api/conversations/list/' + user._id).success(function(conversations) {
       $scope.conversations = conversations;
     })
 
@@ -66,6 +66,7 @@ angular.module('introApp')
       $http.post('/api/conversations/', conversation).success(function(conversation) {
         $scope.conversations.push(conversation);
         // push into users?
+        console.log(conversation);
         console.log($scope.conversations);
       });
     }
