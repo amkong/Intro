@@ -2,14 +2,22 @@
 
 var _ = require('lodash');
 var Conversation = require('./conversation.model');
+var User = require('../user/user.model')
 
 // Get list of conversations
+// exports.index = function(req, res) {
+//   Conversation.find(function (err, conversations) {
+//     if(err) { return handleError(res, err); }
+//     return res.json(200, conversations);
+//   });
+// };
+
 exports.index = function(req, res) {
-  Conversation.find(function (err, conversations) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, conversations);
+  console.log(req.params.id);
+  Conversation.findById(req.params.id, function(err, user) {
+
   });
-};
+}
 
 // Get a single conversation
 exports.show = function(req, res) {
@@ -20,11 +28,15 @@ exports.show = function(req, res) {
   });
 };
 
+
 // Creates a new conversation in the DB.
 exports.create = function(req, res) {
-  Conversation.create(req.body, function(err, conversation) {
+  Conversation.create(req.body)
+  .populate('creator')
+  .exec(function(err, conversation) {
     if(err) { return handleError(res, err); }
     return res.json(201, conversation);
+    // need to save id to users
   });
 };
 

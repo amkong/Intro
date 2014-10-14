@@ -9,13 +9,17 @@ angular.module('introApp')
 
     var user = Auth.getCurrentUser();
     // async? sometimes on log in will not run.
+    console.log(user);
 
-    // GET contacts
+    // GET contacts from users contacts list
     $http.get('/api/users/contacts/list').success(function(contacts) {
       $scope.contacts = contacts;
     })
 
-    // GET conversations
+    // GET conversations from users conversation list
+    $http.get('/api/users/conversations/list').success(function(conversations) {
+      $scope.conversations = conversations;
+    })
 
     // GET messages
       // $http.get('/api/messages/' + user._id).success(function(messages) {
@@ -61,6 +65,7 @@ angular.module('introApp')
 
       $http.post('/api/conversations/', conversation).success(function(conversation) {
         $scope.conversations.push(conversation);
+        // push into users?
         console.log($scope.conversations);
       });
     }

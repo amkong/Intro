@@ -79,6 +79,18 @@ exports.contacts = function(req, res) {
   })
 }
 
+// GET conversations list on login
+exports.convo = function(req, res) {
+  var user = req.user
+
+  User.findById(user._id)
+  .populate('conversationList')
+  .exec(function(err, user) {
+    if (err) { return handleError(err); }
+    if (!user) { return res.json(401); }
+    return res.json(200, user.conversationList)
+  })
+}
 
 /**
  * Deletes a user
