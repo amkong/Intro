@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Conversation = require('./conversation.model');
+var ObjectId = require('mongoose').Types.ObjectId
 // var User = require('../user/user.model')
 
 // Get list of conversations
@@ -14,7 +15,14 @@ var Conversation = require('./conversation.model');
 
 exports.index = function(req, res) {
   var userId = req.params.id;
-  Conversation.find( { 'creator': userId }, function(err, conversations) {
+  console.log(userId)
+  // console.log(ObjectId(userId))
+
+  // Conversation.find({$or:[{'creator':ObjectId('543dc86207637edc120b3843')},{'userId':ObjectId('543dc86207637edc120b3843')}]})
+  Conversation.find({$or:[{'creator':ObjectId(userId)},{'userId':ObjectId(userId)}]})
+  // Conversation.find( { 'creator': ObjectId(userId) } )
+  // Conversation.find( { $or: [ { 'creator': ObjectId(userId) }, { 'userId': ObjectId(userId) } ] } )
+  .exec(function(err, conversations) {
     if(err) { return handleError(res, err); }
     if(!conversations) { return res.send(404); }
     console.log(conversations);

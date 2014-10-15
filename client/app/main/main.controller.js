@@ -9,7 +9,6 @@ angular.module('introApp')
 
     var user = Auth.getCurrentUser();
     // async? sometimes on log in will not run.
-    console.log(user);
 
     // GET contacts from users contacts list
     $http.get('/api/users/contacts/list').success(function(contacts) {
@@ -54,7 +53,6 @@ angular.module('introApp')
 
     $scope.newConversation = function() {
       // click on contact to open a conversation
-      console.log(this.contact._id);
       var contact = this.contact;
 
       var conversation = {
@@ -65,9 +63,7 @@ angular.module('introApp')
 
       $http.post('/api/conversations/', conversation).success(function(conversation) {
         $scope.conversations.push(conversation);
-        // push into users?
-        console.log(conversation);
-        console.log($scope.conversations);
+        // OPEN CONVERSATION WINDOW
       });
     }
 
