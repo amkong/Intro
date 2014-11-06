@@ -15,17 +15,11 @@ var ObjectId = require('mongoose').Types.ObjectId
 
 exports.index = function(req, res) {
   var userId = req.params.id;
-  console.log(userId)
-  // console.log(ObjectId(userId))
 
-  // Conversation.find({$or:[{'creator':ObjectId('543dc86207637edc120b3843')},{'userId':ObjectId('543dc86207637edc120b3843')}]})
   Conversation.find({$or:[{'creator':ObjectId(userId)},{'userId':ObjectId(userId)}]})
-  // Conversation.find( { 'creator': ObjectId(userId) } )
-  // Conversation.find( { $or: [ { 'creator': ObjectId(userId) }, { 'userId': ObjectId(userId) } ] } )
   .exec(function(err, conversations) {
     if(err) { return handleError(res, err); }
     if(!conversations) { return res.send(404); }
-    console.log(conversations);
     return res.json(200, conversations);
   });
 }
@@ -42,14 +36,24 @@ exports.show = function(req, res) {
 
 // Creates a new conversation in the DB.
 exports.create = function(req, res) {
-  Conversation.create(req.body, function(err, conversation) {
-    if(err) { return handleError(err); }
-    Conversation.findOne(conversation)
-    .populate('creator userId')
-    .exec(function(err, conversation) {
-      if(err) { return handleError(err); }
-      return res.json(201, conversation);
-    });
+  Conversation.findById(req.body.userId, function(err, conversation) {
+    if (err) { return handleError(res, err); }
+    else if (!conversation) {
+      Conversation.create(req.body, function(err, conversation) {
+        if(err) { return handleError(err); }
+        Conversation.findOne(conversation)
+        .populate('creator userId')
+        .exec(function(err, conversation) {
+          if(err) { return handleError(err); }
+          console.log('new conversation, ' + conversation);
+          return res.json(201, conversation);
+        });
+      });
+    }
+    else {
+      console.log('old conversation, ' + conversation);
+      return res.json(200, conversation);
+      }
   });
 }
 

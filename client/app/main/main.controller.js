@@ -2,7 +2,7 @@
 
 angular.module('introApp')
   .controller('MainCtrl', function ($scope, $http, socket, Auth, Modal) {
-    
+
     // Messages!
     $scope.inbox = [];
     $scope.conversations = [];
@@ -54,17 +54,37 @@ angular.module('introApp')
     $scope.newConversation = function() {
       // click on contact to open a conversation
       var contact = this.contact;
-
+      var foundConversation = false;
       var conversation = {
         name: contact.name,
         creator: user._id,
         userId: contact._id
       }
 
-      $http.post('/api/conversations/', conversation).success(function(conversation) {
-        $scope.conversations.push(conversation);
-        // OPEN CONVERSATION WINDOW
-      });
+      for (var i = 0; i < $scope.conversations.length; i++) {
+        if ($scope.conversations[i].name == contact.name) {
+          foundConversation = true;
+          break;
+        }
+      }
+
+      if (foundConversation) {
+        // OPEN THIS CONVERSATION WINDOW
+      }
+      else {
+        $http.post('/api/conversations/', conversation).success(function(conversation) {
+          $scope.conversations.push(conversation);
+          // OPEN CONVERSATION WINDOW
+          console.log('this, ' + conversation)
+        });
+      }
+    }
+
+    $scope.closeConversation = function() {
+      // remove conversation from list
+      // TODO: remove from database?
+      var index = $scope.conversations.indexOf(this.conversation);
+      $scope.conversations.splice(index, 1);
     }
 
     $scope.$on('$destroy', function () {

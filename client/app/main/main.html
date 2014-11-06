@@ -16,9 +16,12 @@
     </div>
     <div class="window-area">
       <div class="conversation-list">
-        <ul class="" ng-repeat="conversation in conversations">
+        <ul class="">
           <li class="item"><a href="#"><i class="fa fa-list-alt"></i><span>Dashboard</span></a></li>
-          <li class="item active"><a href="#"><i class="fa fa-user"></i><span>{{conversation.name}}</span><i class="fa fa-times"></i></a></li>
+        </ul>
+        <ul class="" ng-repeat="conversation in conversations">
+          <!-- <li class="item"><a href="#"><i class="fa fa-list-alt"></i><span>Dashboard</span></a></li> -->
+          <li class="item active"><a href="#"><i class="fa fa-user"></i><span>{{conversation.name}}</span><i class="fa fa-times" ng-click="closeConversation()"></i></a></li>
         </ul>
         <div class="my-account">
           <div class="image">
@@ -33,6 +36,7 @@
 
         </div>
       </div>
+
       <div class="chat-area">
         <div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
         <div class="chat-list">
@@ -49,6 +53,7 @@
             </li>
           </ul>
         </div>
+
         <div class="input-area">
           <div class="input-wrapper">
             <input type="text" value="" ng-model="newMessage">
